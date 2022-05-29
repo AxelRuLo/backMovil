@@ -19,7 +19,7 @@ router.post('/login', function (req, res, next) {
         let token = jwt.sign(user, "polloAsado")
         res.json({ "respuesta": token })
       } else {
-        res.json({ "respuesta": "usuario invalido" })
+        res.status(400).json({ "respuesta": "usuario invalido" })
       }
 
     })
@@ -48,7 +48,7 @@ router.post('/register', function (req, res, next) {
         let token = jwt.sign(user, "polloAsado")
         res.json({ "respuesta": token })
       } else {
-        res.json({ "respuesta": "No se puedo agregar" })
+        res.status(400).json({ "respuesta": "No se puedo agregar" })
       }
     })
     .catch(err => {
